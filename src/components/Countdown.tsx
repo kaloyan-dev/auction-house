@@ -6,7 +6,9 @@ const Countdown = ({ endDate }: CountdownProps) => {
     const now = new Date();
     const distance = new Date(endDate).getTime() - now.getTime();
 
-    if (distance < 0) return null;
+    if (distance < 0) {
+      return null;
+    }
 
     const hours = Math.floor(
       (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
@@ -24,7 +26,12 @@ const Countdown = ({ endDate }: CountdownProps) => {
       setTimeLeft(calculateTimeLeft());
     }, 1000);
 
-    return () => clearInterval(timer);
+    return () => {
+      return clearInterval(timer);
+    };
+
+    // Adding calculateTimeLeft to dependencies causes infinite loop
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [endDate]);
 
   if (!timeLeft) {
