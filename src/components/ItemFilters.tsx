@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { RefreshCcw } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import AuctionsContext from "@/contexts/AuctionsContext";
 import {
@@ -120,13 +121,12 @@ const ItemFilters = () => {
             }
           />
         </div>
-      </div>
-      <div className="text-right mt-4">
         <button
-          className="text-white bg-gray-700 px-3 py-2 rounded-lg hover:bg-gray-600 border border-gray-600 text-sm"
+          className="text-white bg-gray-700 px-3 py-2 rounded hover:bg-gray-600 border border-gray-600 text-sm self-baseline-last"
           onClick={() => dispatch(resetFilters())}
+          title="Reset Filters"
         >
-          Reset Filters
+          <RefreshCcw />
         </button>
       </div>
     </div>
