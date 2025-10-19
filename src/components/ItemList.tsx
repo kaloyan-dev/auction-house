@@ -1,9 +1,11 @@
 import Item from "@/components/Item";
-import { ItemListProps } from "@/types";
 import { RootState } from "@/store";
 import { useSelector } from "react-redux";
+import { useContext } from "react";
+import AuctionsContext from "@/contexts/AuctionsContext";
 
-const ItemList = ({ count, items }: ItemListProps) => {
+const ItemList = () => {
+  const { filteredItems, itemCount } = useContext(AuctionsContext);
   const viewMode = useSelector((state: RootState) => state.viewMode.mode);
 
   let listClassName =
@@ -13,13 +15,13 @@ const ItemList = ({ count, items }: ItemListProps) => {
     listClassName = "flex flex-col gap-4";
   }
 
-  if (items.length === 0) {
+  if (filteredItems.length === 0) {
     return <p className="text-gray-300 mt-6">No items found.</p>;
   }
 
   return (
     <div className={listClassName}>
-      {items.slice(0, count).map((item) => (
+      {filteredItems.slice(0, itemCount).map((item) => (
         <Item key={item.id} {...item} />
       ))}
     </div>

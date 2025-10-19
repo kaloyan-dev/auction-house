@@ -1,10 +1,13 @@
 import { Grid2x2, List } from "lucide-react";
 import { setViewMode } from "@/store/viewModeSlice";
+import { useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
-import { ItemViewModeProps } from "@/types";
+import AuctionsContext from "@/contexts/AuctionsContext";
 
-const ItemViewMode = ({ currentItems, totalItems }: ItemViewModeProps) => {
+const ItemViewMode = () => {
+  const auction = useContext(AuctionsContext);
+
   const dispatch = useDispatch();
   const viewMode = useSelector((state: RootState) => state.viewMode.mode);
 
@@ -16,7 +19,7 @@ const ItemViewMode = ({ currentItems, totalItems }: ItemViewModeProps) => {
   return (
     <div className="my-4 flex justify-between items-center">
       <p className="text-sm text-gray-300">
-        Showing {currentItems} of {totalItems} items
+        Showing {auction.itemCount} of {auction.filteredItems.length} items
       </p>
 
       <div className="flex items-center border border-gray-600 overflow-hidden rounded-lg">
