@@ -13,6 +13,14 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ---
 
+### Things that AI helped with 🤖
+
+- guidelines on how to make the backend requests in Next.js needed to fetch the auction items
+- the initial Countdown component (was later improved by a human - me)
+- first redux slice syntax to save some time
+
+---
+
 ### Improvements I'd make (if I didn't run out of time)
 
 - improve item single page's layout
