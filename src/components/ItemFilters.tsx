@@ -122,7 +122,7 @@ const ItemFilters = () => {
           />
         </div>
         <button
-          className="text-white bg-gray-700 px-3 py-2 rounded hover:bg-gray-600 border border-gray-600 text-sm self-baseline-last"
+          className="text-white bg-gray-700 px-3 py-2 rounded hover:bg-gray-600 border border-gray-600 text-sm self-baseline-last mt-4 lg:mt-0"
           onClick={() => dispatch(resetFilters())}
           title="Reset Filters"
         >
