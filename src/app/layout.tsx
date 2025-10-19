@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import DisplayMode from "@/components/DisplayMode";
 import { ReduxProvider } from "@/store/provider";
 import "./globals.css";
 
@@ -26,9 +27,22 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased dark`}
       >
-        <ReduxProvider>{children}</ReduxProvider>
+        <ReduxProvider>
+          <div className="p-4 max-w-7xl mx-auto">
+            <div className="flex items-center justify-between">
+              <div>
+                <h1 className="text-3xl mb-2">Welcome to Auction House™</h1>
+                <p className="text-gray-400">
+                  Your one-stop platform for buying and selling auction items.
+                </p>
+              </div>
+              <DisplayMode />
+            </div>
+            {children}
+          </div>
+        </ReduxProvider>
       </body>
     </html>
   );

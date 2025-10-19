@@ -23,12 +23,12 @@ const ItemFilters = () => {
   const allStatuses = getUniqueItemTerms(items, "status");
 
   const inputClassName =
-    "py-2 px-4 rounded bg-gray-700 border border-gray-600 text-white w-full focus:outline-none";
+    "py-2 px-4 rounded border border-gray-600 w-full focus:outline-none dark:text-white dark:bg-gray-700";
   const selectClassName = inputClassName.replace("p-2", "px-2 py-2.5");
   const labelClassName = "mt-2 lg:mt-0 mb-2";
 
   return (
-    <div className="bg-gray-800 p-4 rounded-lg mt-6">
+    <div className="p-4 rounded-lg mt-6 dark:bg-gray-800 border border-gray-400 dark:border-gray-600">
       <div className="lg:flex items-center justify-between gap-4">
         <div className="w-full">
           <p className={labelClassName}>
@@ -122,7 +122,7 @@ const ItemFilters = () => {
           />
         </div>
         <button
-          className="text-white bg-gray-700 px-3 py-2 rounded hover:bg-gray-600 border border-gray-600 text-sm self-baseline-last mt-4 lg:mt-0"
+          className="dark:text-white dark:bg-gray-700 px-3 py-2 rounded hover:bg-gray-600 border border-gray-600 text-sm self-baseline-last mt-4 lg:mt-0"
           onClick={() => dispatch(resetFilters())}
           title="Reset Filters"
         >

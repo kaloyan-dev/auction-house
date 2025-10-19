@@ -29,6 +29,22 @@ const formatPrice = (price: number, currency: string): string => {
   return `${currency}${priceNumber.toLocaleString()}`;
 };
 
+const storageGet = (key: string) => {
+  if (typeof window === "undefined") {
+    return null;
+  }
+
+  return window.localStorage.getItem(key);
+};
+
+const storageSet = (key: string, value: string) => {
+  if (typeof window === "undefined") {
+    return;
+  }
+
+  window.localStorage.setItem(key, value);
+};
+
 const uppercaseFirstLetter = (str: string): string => {
   if (!str) {
     return "";
@@ -37,4 +53,11 @@ const uppercaseFirstLetter = (str: string): string => {
   return str.charAt(0).toUpperCase() + str.slice(1);
 };
 
-export { getUniqueItemTerms, formatDate, formatPrice, uppercaseFirstLetter };
+export {
+  getUniqueItemTerms,
+  formatDate,
+  formatPrice,
+  storageGet,
+  storageSet,
+  uppercaseFirstLetter,
+};

@@ -12,17 +12,19 @@ const ItemViewMode = () => {
   const viewMode = useSelector((state: RootState) => state.viewMode.mode);
 
   const getButtonClassName = (isActive: boolean) => {
-    const activeClass = isActive ? "bg-gray-600 gap-2" : "bg-transparent";
-    return `px-3 py-2 text-white flex items-center ${activeClass}`;
+    const activeClass = isActive
+      ? "bg-gray-300 dark:bg-gray-600 gap-2"
+      : "bg-transparent";
+    return `px-3 py-2 dark:text-white flex items-center ${activeClass}`;
   };
 
   return (
     <div className="my-4 flex justify-between items-center">
-      <p className="text-sm text-gray-300">
+      <p className="text-sm text-gray-600 dark:text-gray-300">
         Showing {auction.itemCount} of {auction.filteredItems.length} items
       </p>
 
-      <div className="flex items-center border border-gray-600 overflow-hidden rounded-lg">
+      <div className="flex items-center border border-gray-300 dark:border-gray-600 overflow-hidden rounded-lg">
         <button
           onClick={() => dispatch(setViewMode("grid"))}
           className={getButtonClassName(viewMode === "grid")}
