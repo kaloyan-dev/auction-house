@@ -16,4 +16,14 @@ type ItemProps = {
   status: string;
 };
 
-export type { ItemImageProps, ItemProps };
+type ItemListProps = {
+  count: number;
+  items: ItemProps[];
+};
+
+type ItemViewModeProps = {
+  currentItems: number;
+  totalItems: number;
+};
+
+export type { ItemImageProps, ItemProps, ItemListProps, ItemViewModeProps };

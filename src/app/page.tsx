@@ -1,4 +1,4 @@
-import ItemList from "@/components/ItemList";
+import Auctions from "@/components/Auctions";
 import { fetchItems } from "@/hooks/useItems";
 
 export default async function Home() {
@@ -11,7 +11,7 @@ export default async function Home() {
         Your one-stop platform for buying and selling auction items.
       </p>
 
-      <ItemList items={items} />
+      <Auctions items={items} />
     </div>
   );
 }
