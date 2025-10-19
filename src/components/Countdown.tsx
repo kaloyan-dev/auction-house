@@ -12,13 +12,14 @@ const Countdown = ({ endDate }: CountdownProps) => {
       return null;
     }
 
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
     const hours = Math.floor(
       (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
     );
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    return { hours, minutes, seconds };
+    return { days, hours, minutes, seconds };
   };
 
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
@@ -42,6 +43,7 @@ const Countdown = ({ endDate }: CountdownProps) => {
 
   return (
     <span className="text-green-600 dark:text-green-300">
+      {String(timeLeft.days).padStart(2, "0")}d{" "}
       {String(timeLeft.hours).padStart(2, "0")}h{" "}
       {String(timeLeft.minutes).padStart(2, "0")}m{" "}
       {String(timeLeft.seconds).padStart(2, "0")}s
