@@ -42,7 +42,9 @@ const Countdown = ({ endDate }: CountdownProps) => {
 
   return (
     <span className="text-green-300">
-      {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s
+      {String(timeLeft.hours).padStart(2, "0")}h{" "}
+      {String(timeLeft.minutes).padStart(2, "0")}m{" "}
+      {String(timeLeft.seconds).padStart(2, "0")}s
     </span>
   );
 };
