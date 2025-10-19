@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { House, Calendar } from "lucide-react";
+import { Calendar, House, Timer } from "lucide-react";
+import Countdown from "@/components/Countdown";
 import ItemImage from "@/components/ItemImage";
 import { ItemProps } from "@/types";
 import { formatDate, formatPrice } from "@/utils";
@@ -35,6 +36,10 @@ const Item = (data: ItemProps) => {
             <p className="flex items-center">
               <Calendar className="mr-2 size-4" />
               End Date: {formatDate(data.endDate)}
+            </p>
+            <p className="flex items-center">
+              <Timer className="mr-2 size-4" />
+              <Countdown endDate={data.endDate} />
             </p>
           </div>
         </div>

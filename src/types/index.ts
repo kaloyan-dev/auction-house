@@ -1,3 +1,7 @@
+type CountdownProps = {
+  endDate: string;
+};
+
 type ItemImageProps = {
   src: string;
   alt: string;
@@ -16,4 +20,4 @@ type ItemProps = {
   status: string;
 };
 
-export type { ItemImageProps, ItemProps };
+export type { CountdownProps, ItemImageProps, ItemProps };

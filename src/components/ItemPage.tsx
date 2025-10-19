@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { House, Calendar, ArrowBigLeft } from "lucide-react";
+import { ArrowBigLeft, Calendar, House, Timer } from "lucide-react";
+import Countdown from "@/components/Countdown";
 import ItemImage from "@/components/ItemImage";
 import { ItemProps } from "@/types";
 import { formatDate, formatPrice } from "@/utils";
@@ -46,6 +47,10 @@ const ItemPage = ({ items }: { items: ItemProps[] }) => {
             <p className="flex items-center">
               <Calendar className="mr-2 size-4" />
               End Date: {formatDate(item.endDate)}
+            </p>
+            <p className="flex items-center">
+              <Timer className="mr-2 size-4" />
+              <Countdown endDate={item.endDate} />
             </p>
           </div>
 

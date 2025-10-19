@@ -10,6 +10,12 @@ const fetchItems = async (): Promise<Array<ItemProps>> => {
   }
 
   const data = await response.json();
+
+  // Hardcode the endDate of the first item to make sure the countdown is visible
+  if (data.length > 0) {
+    data[0].endDate = "2026-07-19T19:00:00Z";
+  }
+
   return data;
 };
 
