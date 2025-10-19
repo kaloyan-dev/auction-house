@@ -11,20 +11,17 @@ import {
   resetFilters,
 } from "@/store/filterSlice";
 import { AppDispatch, RootState } from "@/store";
-import { getUniqueItemTerms, uppercaseFirstLetter } from "@/utils";
+import { uppercaseFirstLetter } from "@/utils";
 
 const ItemFilters = () => {
-  const { filteredItems: items } = useContext(AuctionsContext);
+  const { allCategories, allStatuses } = useContext(AuctionsContext);
 
   const filter = useSelector((state: RootState) => state.filter);
   const dispatch = useDispatch<AppDispatch>();
 
-  const allCategories = getUniqueItemTerms(items, "category");
-  const allStatuses = getUniqueItemTerms(items, "status");
-
   const inputClassName =
     "py-2 px-4 rounded border border-gray-600 w-full focus:outline-none dark:text-white dark:bg-gray-700";
-  const selectClassName = inputClassName.replace("p-2", "px-2 py-2.5");
+  const selectClassName = inputClassName.replace("py-2", "py-2.5");
   const labelClassName = "mt-2 lg:mt-0 mb-2";
 
   return (

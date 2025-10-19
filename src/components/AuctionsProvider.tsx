@@ -6,6 +6,7 @@ import AuctionsContext from "@/contexts/AuctionsContext";
 import useDebounce from "@/hooks/useDebounce";
 import { ItemProps } from "@/types";
 import { RootState } from "@/store";
+import { getUniqueItemTerms } from "@/utils";
 
 const AuctionsProvider = ({
   items,
@@ -15,6 +16,8 @@ const AuctionsProvider = ({
   children: React.ReactNode;
 }) => {
   const filter = useSelector((state: RootState) => state.filter);
+  const allCategories = getUniqueItemTerms(items, "category");
+  const allStatuses = getUniqueItemTerms(items, "status");
 
   const [filteredItems, setFilteredItems] = useState<ItemProps[]>(items);
   const [itemCount, setItemCount] = useState(4);
@@ -75,7 +78,13 @@ const AuctionsProvider = ({
 
   return (
     <AuctionsContext.Provider
-      value={{ filteredItems, itemCount, setItemCount }}
+      value={{
+        allCategories,
+        allStatuses,
+        filteredItems,
+        itemCount,
+        setItemCount,
+      }}
     >
       {children}
     </AuctionsContext.Provider>
